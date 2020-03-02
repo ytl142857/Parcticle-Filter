@@ -64,7 +64,7 @@ weights *= scipy.stats.genpareto.pdf(z[i], 3, distance, R)
 + 直接采用帕累托分布，效果很差，猜想如下：帕累托分布中，随机变量在1的概率太大，导致权重更新时很多并没有有效地进行权重更新。
 + 这里采用`scipy.stats.genpareto.pdf`函数，因为对帕累托分布只有初步的了解，在经历`scipy.stats.pareto.pdf`测试情况很不理想的情况下，尝试了广义帕累托分布，其中原理有待进一步学习。
 + 在测试中，沿用了正态分布的`loc`与`scale`参数，参数都需要进一步测试。
-+ 相较于正态分布，帕累托分布中，在`robot`水平或垂直移动时，`particle`的分布更加“细”。
++ 相较于正态分布，帕累托分布中，在`robot`在向同一方向运动时，`particle`们在该方向上方差更大，而其他方向上非常接近。
 ![q-2-3.jpg](https://i.loli.net/2020/03/02/idH5SsNkmL1wGvx.jpg)
 ***
 
